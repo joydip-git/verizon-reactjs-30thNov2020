@@ -29,8 +29,22 @@ h. rest parameter
 (how to  create object JS -> object literal syntax, constructor function, create method)
 i. class, super, extends, class properties, static property in class
 
-modules in JS
-module format
+c/c++--->compiler-->object code
+java/c#-->compiler-->byte code/IL code-->JVM/CLR-->executable code
+
+JS --> compiler -->compile code -->runtime -->execute the code
+JS --> Node runtime -- v8 engine (compiles and executes the code) 
+
+a.h
+b.h
+
+main.cpp
+#include<a.h>
+#in
+
+modules in JS: individual files, it provides api to access members from that file, this way introduces reusability
+module format: how do you export members from a file and import members in a file from other files
+Common JS (CJS), Asynchronous Module Defibition (AMD), Universal Module Definition (UMD), System JS, ES6 module format
 module loader
 
 transpilation
