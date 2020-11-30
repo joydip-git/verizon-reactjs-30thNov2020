@@ -1,9 +1,9 @@
 //function: component
 //returns value (HTML element)
-function contentHeader() {
-    var headerContent = 'Introduction to React JS'
+const contentHeader = () => {
+    const headerContent = 'Introduction to React JS'
 
-    var headerElement = document.createElement('h3');
+    const headerElement = document.createElement('h3');
     headerElement.innerHTML = headerContent;
 
     headerElement.style.backgroundColor = 'burlywood'

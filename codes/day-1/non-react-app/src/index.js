@@ -1,3 +1,3 @@
-var appDesign = app();
-var placeholder = document.getElementById('root')
+const appDesign = app();
+const placeholder = document.getElementById('root')
 placeholder.appendChild(appDesign);

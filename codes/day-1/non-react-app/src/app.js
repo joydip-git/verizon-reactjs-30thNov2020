@@ -1,8 +1,8 @@
-function app(){
-    var headerDesign = contentHeader();
-    var bodyDesign = contentBody();
+const app = () => {
+    const headerDesign = contentHeader();
+    const bodyDesign = contentBody();
 
-    var appElement = document.createElement('div')
+    const appElement = document.createElement('div')
     appElement.appendChild(headerDesign)
     appElement.appendChild(bodyDesign);
 
