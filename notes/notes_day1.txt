@@ -2,4 +2,10 @@ Node JS
 Visual studio code
 
 React JS:
+Introduction
+components
+state and props
+lifecyle
+....
+
 
