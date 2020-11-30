@@ -11,4 +11,4 @@ const add = (a, b) => {
 add(10, 20);
 //console.log(window ? window : 'NA')
 //console.log(global ? global : 'NA')
-console.log(module)
+//console.log(module)

@@ -1,6 +1,8 @@
 //function: component
 //returns value (HTML element)
-const contentHeader = () => {
+
+//ES6 module
+export const contentHeader = () => {
     const headerContent = 'Introduction to React JS'
 
     const headerElement = document.createElement('h3');
@@ -13,3 +15,6 @@ const contentHeader = () => {
 
     return headerElement;
 }
+/**
+ * module.exports={contentHeader:contentHeader}
+ */
