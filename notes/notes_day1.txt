@@ -46,14 +46,24 @@ modules in JS: individual files, it provides api to access members from that fil
 module format: how do you export members from a file and import members in a file from other files
 Common JS (CJS), Asynchronous Module Defibition (AMD), Universal Module Definition (UMD), System JS, ES6 module format
 
-module loader
+module loader: Require JS (understands AMD format, does not understand any other format)
+convert your mdoule format--> AMD format
 
 Browser does not understand modular JS code
 
 JS files: root file -->
 
-transpilation
-transpailer: babel, typecsript etc.
+transpilation: convert your ES6 JS code to old JS code
+transpiler: babel, typecsript etc.
+
+const x = ()=>{} --> var x = function(){}
+class A{} ---> function A(){} //ctor function
+
+Babel
+1. parses code
+2. transformation (plugins)
+3. prints
+A.js (src)--> A.js (build)
 
 
 
