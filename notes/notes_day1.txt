@@ -65,6 +65,25 @@ Babel
 3. prints
 A.js (src)--> A.js (build)
 
+useful links:
+https://medium.com/@happymishra66/execution-context-in-javascript-319dd72e8e2c
+from Joydip Mondal to everyone:    6:15 PM
+https://github.com/lukehoban/es6features
+from Joydip Mondal to everyone:    6:15 PM
+http://es6-features.org/#Constants
+from Joydip Mondal to everyone:    6:16 PM
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
+from Joydip Mondal to everyone:    6:17 PM
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures
+from Joydip Mondal to everyone:    6:17 PM
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+from Joydip Mondal to everyone:    6:18 PM
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields
+from Joydip Mondal to everyone:    6:19 PM
+https://www.freecodecamp.org/news/javascript-modules-a-beginner-s-guide-783f7d7a5fcc/
+from Joydip Mondal to everyone:    6:19 PM
+https://www.jvandemo.com/a-10-minute-primer-to-javascript-modules-module-formats-module-loaders-and-module-bundlers/
+
 
 
 
