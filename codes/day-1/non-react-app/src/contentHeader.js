@@ -1,3 +1,5 @@
+//function: component
+//returns value (HTML element)
 function contentHeader() {
     var headerContent = 'Introduction to React JS'
 

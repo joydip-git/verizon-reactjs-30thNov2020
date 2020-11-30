@@ -1,11 +1,41 @@
+s/w required:
 Node JS
 Visual studio code
 
-React JS:
-Introduction
-components
-state and props
-lifecyle
-....
+extensions for VS Code:
+HTML Boilerplate
+ES7 React/Redux/React-Native/JS snippets
+Babel JavaScript
+Babel ES6/ES7
+vscode-icons
+prettier code formatter
+
+application:
+app design is split into multiple pieces: component [hear, body]
+root component: (app.js) puts together all those individual components (piecces)
+bootstrapper file: (index.js) which loads the entire dynamic app design into the HTML file
+template:(index.html) which is used to display the entire app design
+
+client-side framework/libraries:
+new features in JS (ES - 2015-v6, 2017-v7, 2018-v8, 2019-v9)
+a. let keyword
+b. const keyword
+c. templated string and interpolation
+d. object destructuring
+e. spread operator
+f. arrow function [incomplete]
+g. optional argument with default value
+h. rest parameter
+(how to  create object JS -> object literal syntax, constructor function, create method)
+i. class, super, extends, class properties, static property in class
+
+modules in JS
+module format
+module loader
+
+transpilation
+transpailer: babel, typecsript etc.
+
+
 
 
