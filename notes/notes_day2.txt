@@ -128,8 +128,13 @@ e. provides JSX for faster and easy coding
    <employee id='1'></employee>
 </employees>
 
+http://localhost/my-app/index.html
 
 
+npm i create-react-app -g
+create-react-app react-app
+
+npx create-react-app react-app
 
 
 
