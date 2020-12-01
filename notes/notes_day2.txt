@@ -10,6 +10,7 @@
 	b. @babel/cli (cli package for using babel commands)
 	c. @babel/.... plugins (for class properties and ES6 module conversion)
 	d. @babel/preset-env (preset package - collection of several plugins - for ES6 to older JS code conversion) 
+        e. @babel/preset-react (JSX code --> JS code)
 
 	[npm i @babel/core @babel/cli @babel/preset-env @babel/plugin-transform-modules-amd @babel/plugin-proposal-class-properties @babel/plugin-proposal-class-static-block --save-dev]
       
@@ -18,6 +19,7 @@
    B. App Dev Server:
 	e. install any development level server (say, lite-server) to host your application in the browser
 	[npm i lite-server --save-dev]
+       webpack dev server: webpack-dev-server [npm i webpack-dev-server --save-dev]
 
    c. Module loader: (require js & systemjs.register)
 	f. also inlcude the "require.js" script file in the index.html file using script tag as module loader
@@ -26,18 +28,40 @@
    D. React JS:
        g. react and react-dom [npm i react react-dom --save]
 
+   E. bundler and loaders and plugins:
+      bundler: webpack and webpack-cli [npm i webpack webpack-cli --save-dev]
+      loaders:
+        a. html: html-loader 
+        b. CSS: css-loader and style-loader	
+	c. JS: babel-loader [TypeScript, typescript transpiler, ts-loader]
+	d. images: file-loader
+	e. xml files: xml-loader
+	f. csv files: csv-loader
+	[npm i html-loader style-loader css-loader babel-loader file-loader --save-dev]
+      plugins: html-webpack-plugin
+        [ npm i html-webpack-plugin --save-dev]
+
 3. write some scripts in package.json file
 	a. "compile":"babel src --out-dir=build" (to run babel compiler/transpiler to transpile the code)
 	b. "load":"lite-server" (to load the build folder content and index.html file) in the browser
 
 4. write your code using JS (use new features of ES6) in the source code files
+a. create components
+b. create react elements
+c. assign attributes to react elements (id, style, onclick, etc...)
+d. passing content to react elements (as the third argument to createElement method)
+e. creating react component element design using JSX
+f. passing data from one component to another
+
+w/o JSX:
+const compElement = Comp({propName: value})
+const Comp=(args)=>{ return ( <p>{args.propName}</p> )};
+
+with JSX: [propName-->attribute]
+const compElement = <Comp propName={value} />
 
 5. compile and then load your application in the browser
 
-
-React JS:
-NOT a framework like Angular
-Rather a JS library
 
 const button = document.createElement('button')
 button.addEventListener('click',function(){alert('clicked')})
@@ -69,11 +93,40 @@ $.ajax({
    onFailure:function(){}
 })
 
-React JS:
+React JS: 
+NOT a framework like Angular
+Rather a JS library
+
+i. createElement -- to create a React element which will be part of VDOM, 
+ii. render--> to create VDOM and generate HTML actual DOM based on the VDOM
+
 a. Create UI driven client-side application
-b. much faster performance
-c. provides creation of application through series of components
-d. uses virtual DOM to render the application design in the Browser
+b. provides creation of application through series of components
+c. uses virtual DOM to render the application design in the Browser
+d. much faster performance
+e. provides JSX for faster and easy coding
+
+1. ES6 code -- > old JS code
+2. ES6 modules --> AMD module format
+3. JSX code --> JS code (<p>...</p> --> React.createElement(.....))
+
+<table>
+	<thead>
+		<tr>
+			<td>Name:</td>
+			<td>Name:</td>
+			<td>Name:</td>
+		</tr>
+        </thead>
+	<tbody>
+
+	</tbody>
+</table>
+
+<? xml version='1.0'>
+<employees>
+   <employee id='1'></employee>
+</employees>
 
 
 
