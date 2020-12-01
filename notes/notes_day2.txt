@@ -1,0 +1,32 @@
+1. create application directory structure
+	a. add package.json file at the root of your aplication directory [npm init --yes]
+	b. add index.html file at the root (or inside separate folder, sya, public)
+	c. add source code files inside directory 'src' at the root of your application directory
+
+2. install following packages for transpilation and other purpose:
+   
+   A. Transpiler:
+	a. @babel/core (core babel package)
+	b. @babel/cli (cli package for using babel commands)
+	c. @babel/.... plugins (for class properties and ES6 module conversion)
+	d. @babel/preset-env (preset package - collection of several plugins - for ES6 to older JS code conversion) 
+
+	[npm i @babel/core @babel/cli @babel/preset-env @babel/plugin-transform-modules-amd @babel/plugin-proposal-class-properties @babel/plugin-proposal-class-static-block --save-dev]
+      
+	NOTE: add .babelrc file at the root of your directory and mention the name of plugins and presets in the file using "plugins" and "presets" JSON properties
+
+   B. App Dev Server:
+	e. install any development level server (say, lite-server) to host your application in the browser
+	[npm i lite-server --save-dev]
+
+   c. Module loader: (require js & systemjs.register)
+	f. also inlcude the "require.js" script file in the index.html file using script tag as module loader
+	[https://requirejs.org/docs/release/2.3.6/minified/require.js]
+
+3. write some scripts in package.json file
+	a. "compile":"babel src --out-dir=build" (to run babel compiler/transpiler to transpile the code)
+	b. "load":"lite-server" (to load the build folder content and index.html file) in the browser
+
+4. write your code using JS (use new features of ES6) in the source code files
+
+5. compile and then load your application in the browser

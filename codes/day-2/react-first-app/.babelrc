@@ -1,0 +1,10 @@
+{
+    "plugins": [
+        "@babel/plugin-proposal-class-properties",
+        "@babel/plugin-proposal-class-static-block",
+        "@babel/plugin-transform-modules-amd"
+    ],
+    "presets": [
+        "@babel/preset-env"
+    ]
+}
