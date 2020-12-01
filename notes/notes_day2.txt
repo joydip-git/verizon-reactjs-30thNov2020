@@ -3,7 +3,7 @@
 	b. add index.html file at the root (or inside separate folder, sya, public)
 	c. add source code files inside directory 'src' at the root of your application directory
 
-2. install following packages for transpilation and other purpose:
+2. install following packages for react, transpilation and other purpose:
    
    A. Transpiler:
 	a. @babel/core (core babel package)
@@ -23,6 +23,9 @@
 	f. also inlcude the "require.js" script file in the index.html file using script tag as module loader
 	[https://requirejs.org/docs/release/2.3.6/minified/require.js]
 
+   D. React JS:
+       g. react and react-dom [npm i react react-dom --save]
+
 3. write some scripts in package.json file
 	a. "compile":"babel src --out-dir=build" (to run babel compiler/transpiler to transpile the code)
 	b. "load":"lite-server" (to load the build folder content and index.html file) in the browser
@@ -30,3 +33,61 @@
 4. write your code using JS (use new features of ES6) in the source code files
 
 5. compile and then load your application in the browser
+
+
+React JS:
+NOT a framework like Angular
+Rather a JS library
+
+const button = document.createElement('button')
+button.addEventListener('click',function(){alert('clicked')})
+
+
+document.ready(function(){
+  button.click(function(){})
+})
+
+const req = new XMLHttpRequest()
+req.onreadystatechange=function(){
+   if(req.readyState === 4 && req.status === 200){
+     const data = req.responseText
+   }
+}
+
+x==10
+x===10
+
+req.open()
+req.send('GET',{}, true)
+
+$.ajax({
+   type:'GET',
+   url:'',
+   data:{},
+   contentType:'application/json',
+   onSuccess:function(){},
+   onFailure:function(){}
+})
+
+React JS:
+a. Create UI driven client-side application
+b. much faster performance
+c. provides creation of application through series of components
+d. uses virtual DOM to render the application design in the Browser
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
