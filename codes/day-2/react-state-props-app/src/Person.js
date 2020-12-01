@@ -3,35 +3,35 @@ import PropTypes from 'prop-types'
 
 const Person = (args) => {
     console.log('[Person] rendered')
-    const update = (event) => {
-        args.personhandler(args.data.id, 'name', event.target.value)
-    }
     return (
         <div
-            onClick={args.handler}
+            onClick={args.updateHandler}
             style={{
                 border: '1px solid black',
                 borderRadius: '3px'
             }}>
-            Count:&nbsp;
-            {args.countData}
-            <br />
-            <br />
-            Name:&nbsp;
-            <input
-                type='text'
-                value={args.data.name}
-                onChange={update}
-            />
-            <br />
+            <span>Name:&nbsp;{args.personRecord.name}</span>
         </div>
     )
 }
 
 Person.propTypes = {
-    countData: PropTypes.number.isRequired,
-    data: PropTypes.object,
-    counthandler: PropTypes.func.isRequired,
-    personhandler: PropTypes.func.isRequired
+    personRecord: PropTypes.object,
+    updateHandler: PropTypes.func.isRequired
 }
 export default Person;
+
+/**
+ * {
+ * type:'div'
+ * props:{
+ *   personRecord:{},
+ *   updateHandler:fn,
+ *   onclick={updateHandler},
+ *   style:{},
+ *   children:[span,nbsp,'anil']
+ * },
+ * key:1/2/3,
+ * ref:null
+ * }
+ */
