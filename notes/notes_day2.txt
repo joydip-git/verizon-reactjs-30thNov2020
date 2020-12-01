@@ -136,6 +136,10 @@ create-react-app react-app
 
 npx create-react-app react-app
 
+//components in React:
+a. functional component
+b. class component
+
 
 
 
