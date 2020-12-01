@@ -2,7 +2,7 @@
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+//import reportWebVitals from './reportWebVitals';
 
 //const appReactElement = App();
 
@@ -12,5 +12,5 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-const logPerformance = (data) => console.log(data)
-reportWebVitals(logPerformance);
+// const logPerformance = (data) => console.log(data)
+// reportWebVitals(logPerformance);

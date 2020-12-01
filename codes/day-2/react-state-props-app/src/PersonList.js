@@ -4,25 +4,45 @@ import Person from './Person';
 
 class PersonList extends Component {
 
-    constructor(){
+    constructor() {
         super()
         console.log('[PL] created....')
+
+        this.state = {
+            count: 0,
+            people: personData
+        }
     }
 
-    //initial state
-    state = {
-        count: 0,
-        people: personData
-    }
+    //initial state -- class property
+    // state = {
+    //     count: 0,
+    //     people: personData
+    // }
+    updatePerson = (personId, propName, newPropValue) => {
+        let copyPeople = [...this.state.people]
+        let foundPerson = copyPeople.find(p => p.id === personId)
+        let foundPersonIndex = copyPeople.findIndex(p => p.id === personId)
 
-    /**
-     * state={count:10, people:personData}
-     */
+        let copyFoundPerson = { ...foundPerson }
+        copyFoundPerson[propName] = newPropValue
+        copyPeople[foundPersonIndex] = copyFoundPerson
+
+        this.setState({
+            people: copyPeople
+        }, () => console.log(this.state))
+    }
 
     increaseCounter = () => {
         // this.setState({
         //     count: 10
-        // })
+        // },()=>{console.log()})
+
+        // let copyState = { ...this.state }
+        // copyState[count] = this.state.count + 1
+        // this.state = copyState;
+        // this.render()
+
         this.setState(
             (previousState) => {
                 console.log(previousState)
@@ -39,15 +59,19 @@ class PersonList extends Component {
         console.log('[PL] rendered')
         return (
             <Person
-                data={personData[2]}
-                handler={this.increaseCounter}
+                data={this.state.people[2]}
                 countData={this.state.count}
+                counthandler={this.increaseCounter}
+                personhandler={this.updatePerson}
             />
         )
     }
 }
 export default PersonList;
-
 /**
- * Person({data:{id:1, name:'anil', age:20, location:'bangalore'}})
+ * {
+ *    data:,
+ *    handler:,
+ *    countData:undefined
+ * }
  */

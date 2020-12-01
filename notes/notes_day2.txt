@@ -140,6 +140,13 @@ npx create-react-app react-app
 a. functional component
 b. class component
 
+static type checking:
+Flow (3rd party package)
+TypeScript (static type checking) -- tsc
+
+dynamic type checking:
+prop-types or airbnb prop-types
+
 
 
 
