@@ -1,7 +1,7 @@
 import React from 'react'
-const HeaderComp = () => {
-    const content = 'Introduction to React JS'
 
+//content-->{headerData:headerContent}
+const HeaderComp = (content) => {
     const headerElement = React.createElement(
         'h3',
         {
@@ -12,7 +12,7 @@ const HeaderComp = () => {
                 borderRadius: '5px'
             }
         },
-        content)
+        content.headerData)
 
     return headerElement;
 }

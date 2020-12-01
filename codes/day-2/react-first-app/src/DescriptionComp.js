@@ -1,8 +1,6 @@
 import React from 'react'
-
-const DescriptionComp = () => {
-    const content = 'React JS is a library. Helps to create client side UI driven application with RAD feature'
-
+//content-->{ descData: descContent }
+const DescriptionComp = (content) => {
     const descriptionElement = React.createElement(
         'p',
         {
@@ -14,7 +12,7 @@ const DescriptionComp = () => {
                 borderRadius: '5px'
             }
         },
-        content
+        content.descData
     )
 
     return descriptionElement;

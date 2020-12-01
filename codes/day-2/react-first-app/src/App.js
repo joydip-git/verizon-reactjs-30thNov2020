@@ -4,8 +4,11 @@ import DescriptionComp from './DescriptionComp'
 
 export const App = () => {
 
-    const headerDesign = HeaderComp();
-    const descriptionDesign = DescriptionComp()
+    let headerContent = 'Introduction to React JS'
+    let descContent = 'React JS is a library. Helps to create client side UI driven application with RAD feature'
+
+    const headerDesign = HeaderComp({ headerData: headerContent });
+    const descriptionDesign = DescriptionComp({ descData: descContent })
 
     let appElement = null;
 
@@ -20,6 +23,15 @@ export const App = () => {
     //adding content to be displayed
     //appElement.innerHTML = content;
 
+
+    const buttonElement = React.createElement(
+        'button',
+        {
+            onClick: () => { window.alert('change data') }
+        },
+        'Change Data'
+    )
+
     //React Element
     const divstyle = {
         fontFamily: 'Segoe UI',
@@ -31,7 +43,7 @@ export const App = () => {
             id: 'mainDiv',
             style: divstyle
         },
-        [headerDesign, descriptionDesign]
+        [headerDesign, descriptionDesign, buttonElement]
     );
 
     return appElement;
