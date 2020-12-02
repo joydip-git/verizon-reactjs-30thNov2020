@@ -27,9 +27,18 @@ lifecycle of a component object:(class component)
    ii. the component receives new values via properties from parent (beacuse parent component state is updated)
 
    a. 
-   b.
+   b. shouldComponentUpdate(newProps, newState):
+      i. gets executed every time from 2nd cycle onwards
+      ii. returns true or false to decide render and any other leifeccyle method followed after render should be executed or not
+      iii. receives new props and new state object first. if the method returns true, THEN ONLY the "state" and "props" properties of class component instance are updated (NOT BEFORE)
+      Use this stop unnecessary rendering
+      NOTE: DO NOT WRITE ANY SIDE EFFECT CAUSING CODE (such as fetching data from RESTFul API server application, making network requests, reading data from file asynchronously, or fetching data from database async way and then set state by calling setState method)
+
    c. render
-   d. componentDidUpdate:
+
+   d. getSnapshotBeforeUpdate
+
+   e. componentDidUpdate(oldProps, oldState,..):
       i.  this event gets fired in case you need this component react element to get updated
       ii. this event gets fired (this function gets executed) from 2nd cycle onwards (happens everytime), NOT the first cycle where componeht is created and mounted
 
@@ -44,3 +53,13 @@ lifecycle of a component object:(class component)
     NOTE: DO NOT WRITE ANY SIDE EFFECT CAUSING CODE (such as fetching data from RESTFul API server application, making network requests, reading data from file asynchronously, or fetching data from database async way and then set state by calling setState method).
 
 4. error
+
+uncecessary rendering (render):
+1. if a component state is updated then the component must be rendered, otherwise not
+2. if the parent of this component state gets updated, then check the received property values changed since the last time or not. accordingly update
+
+
+
+
+
+

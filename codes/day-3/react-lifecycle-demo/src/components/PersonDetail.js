@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component, PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { getPersonById } from '../data/personData'
 
-export default class PersonDetail extends Component {
+// export default class PersonDetail extends Component {
+export default class PersonDetail extends PureComponent {
     constructor() {
         super()
         console.log('[PersonDetail] constructor')
@@ -23,7 +24,22 @@ export default class PersonDetail extends Component {
             personInfo: personCopy
         })
     }
+    /*
+    shouldComponentUpdate(newProps, newState) {
+        console.log('[Person Detail] shouldComponentUpdate')
 
+        if (newProps.personId !== this.props.personId)
+            return true;
+
+        if (this.state.personInfo === null)
+            return true;
+
+        if (this.state.personInfo !== null && newState.personInfo !== this.state.personInfo)
+            return true;
+
+        return false;
+    }
+    */
     render() {
         console.log('[PersonDetail] rendered')
         console.log(this.props)
@@ -83,10 +99,14 @@ export default class PersonDetail extends Component {
 
         return design;
     }
-    componentDidUpdate() {
+    componentDidUpdate(oldProps, oldState) {
         console.log('[PersonDetail] updated')
-        if (this.state.personInfo.id !== this.props.personId)
+        // if (this.state.personInfo.id !== this.props.personId)
+        if (this.state.personInfo === null) {
             this.getDataAndSetState()
+        } else if (this.state.personInfo !== oldState.personInfo || this.props.personId !== oldProps.personId) {
+            this.getDataAndSetState()
+        }
     }
 
     componentDidMount() {
@@ -109,10 +129,25 @@ export default class PersonDetail extends Component {
 //component instance
 /**
 * const pdRef = new PersonDetail()
-* pdRef.state = {x:20}
-  old/previous state --> {x:10}
-* pdRef.props = {personId:3, children:[]}
-old property object-->{ personId: 2, children:[]}
+* pdRef.state = {x:10}
+  pdRef.props = {personId:2, children:[...]}
+
+  {personId:2}, {x:10}
+  shouldComponentUpdate(newProps-->{personId:2},newState-->{x:10}){
+      this.props --> {personId:1, children:[...]}
+      this.state--> {x:0}
+      return true/false;
+  }
+ render(){
+     this.props --> {personId:2 ,children:[]}
+     this.state --> {x:10}
+ }
+  pdRef.state={x:10}
+  pdRef.props ={personId:2 ,children:[]}
+
+  old property object-->{ personId: 1, children:[]}
+  old State object --> {x:0}
+
 */
 //Root React element
 /**
@@ -132,11 +167,5 @@ old property object-->{ personId: 2, children:[]}
  *   }
  * }
  *
- * {
- *   type:'div',
- *   props:{
- *     personId: 3,
- *     children:[]
- *   }
- * }
+ *
  */
