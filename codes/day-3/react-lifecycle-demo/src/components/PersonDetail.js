@@ -4,10 +4,12 @@ import { getPersonById } from '../data/personData'
 
 export default class PersonDetail extends Component {
     //export default class PersonDetail extends PureComponent {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         console.log('[PersonDetail] constructor')
+        console.log(this.props)
     }
+
     state = {
         personInfo: null
     }
@@ -25,10 +27,12 @@ export default class PersonDetail extends Component {
         })
     }
     static getDerivedStateFromProps(newProps, previousState) {
+        console.log('[Person Detail] getDerivedStateFromProps')
+        console.log(newProps)
         // return {
 
         // }
-        console.log('[Person Detail] getDerivedStateFromProps')
+       
         return null;
     }
     shouldComponentUpdate(newProps, newState) {
