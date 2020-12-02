@@ -2,8 +2,8 @@ import React, { Component, PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { getPersonById } from '../data/personData'
 
-// export default class PersonDetail extends Component {
-export default class PersonDetail extends PureComponent {
+export default class PersonDetail extends Component {
+    //export default class PersonDetail extends PureComponent {
     constructor() {
         super()
         console.log('[PersonDetail] constructor')
@@ -24,7 +24,13 @@ export default class PersonDetail extends PureComponent {
             personInfo: personCopy
         })
     }
-    /*
+    static getDerivedStateFromProps(newProps, previousState) {
+        // return {
+
+        // }
+        console.log('[Person Detail] getDerivedStateFromProps')
+        return null;
+    }
     shouldComponentUpdate(newProps, newState) {
         console.log('[Person Detail] shouldComponentUpdate')
 
@@ -39,7 +45,7 @@ export default class PersonDetail extends PureComponent {
 
         return false;
     }
-    */
+
     render() {
         console.log('[PersonDetail] rendered')
         console.log(this.props)
@@ -99,14 +105,20 @@ export default class PersonDetail extends PureComponent {
 
         return design;
     }
-    componentDidUpdate(oldProps, oldState) {
+    getSnapshotBeforeUpdate(oldProps, oldState) {
+        //return oldState.scrollPosition;
+        return { xordinate: 100, yordinate: 200 };
+    }
+    componentDidUpdate(oldProps, oldState, snapshot) {
         console.log('[PersonDetail] updated')
-        // if (this.state.personInfo.id !== this.props.personId)
-        if (this.state.personInfo === null) {
+        console.log(snapshot)
+        if (this.state.personInfo.id !== this.props.personId)
             this.getDataAndSetState()
-        } else if (this.state.personInfo !== oldState.personInfo || this.props.personId !== oldProps.personId) {
-            this.getDataAndSetState()
-        }
+        // if (this.state.personInfo === null) {
+        //     this.getDataAndSetState()
+        // } else if (this.state.personInfo !== oldState.personInfo || this.props.personId !== oldProps.personId) {
+        //     this.getDataAndSetState()
+        // }
     }
 
     componentDidMount() {
@@ -129,18 +141,39 @@ export default class PersonDetail extends PureComponent {
 //component instance
 /**
 * const pdRef = new PersonDetail()
-* pdRef.state = {x:10}
-  pdRef.props = {personId:2, children:[...]}
+* pdRef.state = {x:0, phaseIn:true}
+  pdRef.props = null;
+
+  getDerivedStateFromProps(newProps-->{value:10, data:true, personId:1, children:[...]}, previousState-->{x:0}){
+    return {
+        phaseIn:newProps.data,
+        x:previousState.x+newprops.value
+    }
+    //return null;
+  }
+
+  pdRef.props = {value:10, data:true, personId:1, children:[...]}
+
+
+  getDerivedStateFromProps(newProps-->{value:20, data:false, personId:2, children:[...]}, previousState-->{x:10}){
+      if(newProps.data !== previousState.phaseIn){
+        return {
+            phaseIn:newProps.data,
+            x:previousState.x+newprops.value
+        }
+    }else
+        return null;
+    }
 
   {personId:2}, {x:10}
-  shouldComponentUpdate(newProps-->{personId:2},newState-->{x:10}){
+  shouldComponentUpdate(newProps-->{value:20, data:false, personId:2, children:[...]},newState-->{x:20}){
       this.props --> {personId:1, children:[...]}
       this.state--> {x:0}
       return true/false;
   }
  render(){
-     this.props --> {personId:2 ,children:[]}
-     this.state --> {x:10}
+     this.props --> {value:20, data:false, personId:2, children:[...]}
+     this.state --> {x:30}
  }
   pdRef.state={x:10}
   pdRef.props ={personId:2 ,children:[]}
@@ -168,4 +201,24 @@ export default class PersonDetail extends PureComponent {
  * }
  *
  *
+ */
+
+/**
+ *
+ * shouldComponentUpdate(newProps, newState){
+ *   for(let propName in newProps){
+ *      if(this.props[propName] !== newProps[propName]){
+ *         return true;
+ *      }
+ *   }
+
+     if(this.state !==null){
+     for(let propName in newState){
+ *      if(newState[propName] !== this.state[propName]){
+ *         return true;
+ *      }
+ *   }
+ * }
+ *return false;
+ * }
  */

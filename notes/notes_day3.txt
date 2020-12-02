@@ -12,7 +12,10 @@ lifecycle of a component object:(class component)
 
       NOTE:also DO NOT WRITE ANY SIDE EFFECT CAUSING CODE (such as fetching data from RESTFul API server application, making network requests, reading data from file asynchronously, or fetching data from database async way and then set state by calling setState method)
 
-   b. 
+   b. getDerivedStateFromProps(newProps, previousState) [static]
+      i. every time executed (first time after constructor and next time onwards first)
+      NOTE: DO NOT WRITE ANY SIDE EFFECT CAUSING CODE (such as fetching data from RESTFul API server application, making network requests, reading data from file asynchronously, or fetching data from database async way and then set state by calling setState method)
+
    c. render --> render
       i. gets executed first time and afterwards everytime the state is updated through setState method
       ii. used to create react element of that component and it's child components (create VDOM part)
@@ -26,7 +29,8 @@ lifecycle of a component object:(class component)
    i.  state of the component is updated
    ii. the component receives new values via properties from parent (beacuse parent component state is updated)
 
-   a. 
+   a. getDerivedStateFromProps(newProps, previousState)
+
    b. shouldComponentUpdate(newProps, newState):
       i. gets executed every time from 2nd cycle onwards
       ii. returns true or false to decide render and any other leifeccyle method followed after render should be executed or not
@@ -36,9 +40,12 @@ lifecycle of a component object:(class component)
 
    c. render
 
-   d. getSnapshotBeforeUpdate
+   d.  getSnapshotBeforeUpdate(oldProps, oldState):
+     i. this function gets executed in case you need the component to retain old status quo such as, old scrollbar position etc. just before componentDidUpdate updates and state and re-renders the UI
+    ii. gets executed everytime (except the first cycle) just before componentDidUpdate
+    NOTE: DO NOT WRITE ANY SIDE EFFECT CAUSING CODE (such as fetching data from RESTFul API server application, making network requests, reading data from file asynchronously, or fetching data from database async way and then set state by calling setState method)
 
-   e. componentDidUpdate(oldProps, oldState,..):
+   e. componentDidUpdate(oldProps, oldState,snapshot):
       i.  this event gets fired in case you need this component react element to get updated
       ii. this event gets fired (this function gets executed) from 2nd cycle onwards (happens everytime), NOT the first cycle where componeht is created and mounted
 
