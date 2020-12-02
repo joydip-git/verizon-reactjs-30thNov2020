@@ -60,10 +60,34 @@ lifecycle of a component object:(class component)
     NOTE: DO NOT WRITE ANY SIDE EFFECT CAUSING CODE (such as fetching data from RESTFul API server application, making network requests, reading data from file asynchronously, or fetching data from database async way and then set state by calling setState method).
 
 4. error
+   a. static getDerivedStateFromError(error):
+     returns the a new state which should be used to set the state with error message
+     gets executed before render and only when children throws error
+
+   b. componentDidCatch(error, info):
+     it gets executed after render. use it NOT TO SET STATE, but to log error
 
 uncecessary rendering (render):
 1. if a component state is updated then the component must be rendered, otherwise not
 2. if the parent of this component state gets updated, then check the received property values changed since the last time or not. accordingly update
+
+
+RESTFul API server application APIs:
+base url: http://127.0.0.1:8081/productservice
+
+METHOD					URL					RESPONSE
+------------------------------------------------------------------------------------------------------
+GET			http://127.0.0.1:8081/productservice			an array of products
+GET			http://127.0.0.1:8081/productservice/{id}		a product object
+DELETE			http://127.0.0.1:8081/productservice/{id}		an object with a message and array of products excluding the deleted product
+
+POST			http://127.0.0.1:8081/productservice(product json data) an object with a message and array of products including the new product	
+
+PUT			http://127.0.0.1:8081/productservice(product json data) an object with a message and array of products including the updated product		
+
+download my application
+open terminal (Node) and type: npm i
+then execute the script: npm start
 
 
 
