@@ -1,0 +1,31 @@
+lifecycle of a component object:(class component)
+1. creation and mounting
+   a. constructor: 
+      initilaize class properties (such as state) with default values
+      executed only once during the lifetime of the component object
+
+      write ctor only when:
+      i. you need to initialize the state
+      ii. when you need to bind class methods/properties to the class instance context
+      NOTE: if you use the alternates then there is no need to write the constructor explicitly
+
+      NOTE:also DO NOT WRITE ANY SIDE EFFECT CAUSING CODE (such as fetching data from RESTFul API server application, making network requests, reading data from file asynchronously, or fetching data from database async way and then set state by calling setState method)
+
+   b. 
+   c. render --> render
+      i. gets executed first time and afterwards everytime the state is updated through setState method
+      ii. used to create react element of that component and it's child components (create VDOM part)
+      NOTE: DO NOT WRITE ANY SIDE EFFECT CAUSING CODE (such as fetching data from RESTFul API server application, making network requests, reading data from file asynchronously, or fetching data from database async way and then set state by calling setState method) in render directly
+
+   d. componentDidMount-->componentDidMount
+     i. gets executed ONLY once in the lifecycle of the component object and that is when the component is created and corresponding react element is mounted in Actual DOM
+     ii. NOTE: WRITE ANY SIDE EFFECT CAUSING CODE (such as fetching data from RESTFul API server application, making network requests, reading data from file asynchronously, or fetching data from database async way and then set state by calling setState method). that wil cause one more re-render ( to create fresh Virtual DOM again with updated state data)
+
+2. updation
+3. destruction
+   a. componentWillUnmount:
+      i.  We write resource clean up code here
+      ii. this event gets fired (and the function gets executed) when the component's corresponding element is dismounted from Actual DOM and subsequently the component instance is destroyed
+   
+    NOTE: DO NOT WRITE ANY SIDE EFFECT CAUSING CODE (such as fetching data from RESTFul API server application, making network requests, reading data from file asynchronously, or fetching data from database async way and then set state by calling setState method).
+4. error
