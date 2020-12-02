@@ -1,4 +1,5 @@
 lifecycle of a component object:(class component)
+
 1. creation and mounting
    a. constructor: 
       initilaize class properties (such as state) with default values
@@ -21,11 +22,25 @@ lifecycle of a component object:(class component)
      i. gets executed ONLY once in the lifecycle of the component object and that is when the component is created and corresponding react element is mounted in Actual DOM
      ii. NOTE: WRITE ANY SIDE EFFECT CAUSING CODE (such as fetching data from RESTFul API server application, making network requests, reading data from file asynchronously, or fetching data from database async way and then set state by calling setState method). that wil cause one more re-render ( to create fresh Virtual DOM again with updated state data)
 
-2. updation
+2. updation:
+   i.  state of the component is updated
+   ii. the component receives new values via properties from parent (beacuse parent component state is updated)
+
+   a. 
+   b.
+   c. render
+   d. componentDidUpdate:
+      i.  this event gets fired in case you need this component react element to get updated
+      ii. this event gets fired (this function gets executed) from 2nd cycle onwards (happens everytime), NOT the first cycle where componeht is created and mounted
+
+   NOTE: WRITE ANY SIDE EFFECT CAUSING CODE (such as fetching data from RESTFul API server application, making network requests, reading data from file asynchronously, or fetching data from database async way and then set state by calling setState method). that wil cause one more re-render ( to create fresh Virtual DOM again with updated state data)
+   
+
 3. destruction
    a. componentWillUnmount:
       i.  We write resource clean up code here
       ii. this event gets fired (and the function gets executed) when the component's corresponding element is dismounted from Actual DOM and subsequently the component instance is destroyed
    
     NOTE: DO NOT WRITE ANY SIDE EFFECT CAUSING CODE (such as fetching data from RESTFul API server application, making network requests, reading data from file asynchronously, or fetching data from database async way and then set state by calling setState method).
+
 4. error

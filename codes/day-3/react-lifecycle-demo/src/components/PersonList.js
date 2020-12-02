@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Person from './Person'
 import { getPeople } from '../data/personData'
+import PersonDetail from './PersonDetail'
 
 export default class PersonList extends Component {
     constructor() {
@@ -12,23 +13,37 @@ export default class PersonList extends Component {
         // this.updatePersonHandler = this.updatePersonHandler.bind(this);
     }
     state = {
-        people: []
+        people: [],
+        selectedPersonId: null
+    }
+    updateSelectedPersonIdHandler = (personId) => {
+        this.setState({
+            selectedPersonId: personId
+        })
     }
     updatePersonHandler = () => {
         console.log(this)
     }
     render() {
         console.log('[PersonList] rendered')
+        const { people, selectedPersonId } = this.state;
         return (
-            <div>
-                <br />
-                {
-                    (this.state.people.length > 0) ?
-                        this.state.people.map(p => {
-                            return <Person personData={p} key={p.id} />
-                        }) :
-                        <span>Loading data....</span>
-                }
+            <div style={{ width: '450px' }}>
+                <div style={{ float: "left" }}>
+                    <br />
+                    {
+                        (people.length > 0) ?
+                            people.map(p => {
+                                return <Person personData={p} key={p.id} selectPersonIdHandler={this.updateSelectedPersonIdHandler} />
+                            }) :
+                            <span>Loading data....</span>
+                    }
+                </div>
+                <div style={{ float: "right" }}>
+                    {
+                        (selectedPersonId !== null) && <PersonDetail personId={selectedPersonId} />
+                    }
+                </div>
             </div>
         )
     }
