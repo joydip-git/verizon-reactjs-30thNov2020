@@ -11,12 +11,23 @@ export default class PersonDetail extends Component {
         personInfo: null
     }
     static propTypes = {
-        personId: PropTypes.number.isRequired
+        personId: PropTypes.number.isRequired,
+        updatePerson: PropTypes.func.isRequired
+    }
+
+    updatePersonInfoHandler = (propName, newPropValue) => {
+        let personCopy = { ...this.state.personInfo }
+        personCopy[propName] = newPropValue;
+
+        this.setState({
+            personInfo: personCopy
+        })
     }
 
     render() {
         console.log('[PersonDetail] rendered')
         console.log(this.props)
+        console.log(this.state)
         let design = null;
         const { personInfo } = this.state;
         if (personInfo !== null) {
@@ -29,18 +40,41 @@ export default class PersonDetail extends Component {
                         </tr>
                         <tr>
                             <td>Name:</td>
-                            <td><input type='text' value={personInfo.name} /></td>
+                            <td>
+                                <input
+                                    type='text'
+                                    value={personInfo.name}
+                                    onChange={(event) => this.updatePersonInfoHandler('name', event.target.value)} />
+                            </td>
                         </tr>
                         <tr>
                             <td>Age:</td>
-                            <td><input type='text' value={personInfo.age} /></td>
+                            <td>
+                                <input
+                                    type='text'
+                                    value={personInfo.age}
+                                    onChange={(event) => this.updatePersonInfoHandler('age', parseInt(event.target.value))} />
+                            </td>
                         </tr>
                         <tr>
                             <td>Place:</td>
-                            <td><input type='text' value={personInfo.location} /></td>
+                            <td>
+                                <input
+                                    type='text'
+                                    value={personInfo.location}
+                                    onChange={(event) => this.updatePersonInfoHandler('location', event.target.value)} />
+                            </td>
                         </tr>
                     </table>
-                    <input type='submit' value='Update' />
+                    <input
+                        type='submit'
+                        value='Update'
+                        onClick={
+                            (event) => {
+                                event.preventDefault()
+                                this.props.updatePerson(personInfo)
+                            }
+                        } />
                 </form>
             )
         } else {

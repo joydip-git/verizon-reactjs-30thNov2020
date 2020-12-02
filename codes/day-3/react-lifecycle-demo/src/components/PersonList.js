@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Person from './Person'
-import { getPeople } from '../data/personData'
+import { getPeople, updatePeople } from '../data/personData'
 import PersonDetail from './PersonDetail'
 
 export default class PersonList extends Component {
@@ -21,8 +21,15 @@ export default class PersonList extends Component {
             selectedPersonId: personId
         })
     }
-    updatePersonHandler = () => {
-        console.log(this)
+    updatePersonHandler = (updatedPerson) => {
+        let foundIndex = this.state.people.findIndex(p => p.id === updatedPerson.id)
+        let peopleCopy = [...this.state.people]
+        peopleCopy[foundIndex] = updatedPerson;
+
+        updatePeople(peopleCopy);       
+        this.setState({
+            people: peopleCopy
+        })
     }
     render() {
         console.log('[PersonList] rendered')
@@ -41,7 +48,7 @@ export default class PersonList extends Component {
                 </div>
                 <div style={{ float: "right" }}>
                     {
-                        (selectedPersonId !== null) && <PersonDetail personId={selectedPersonId} />
+                        (selectedPersonId !== null) && <PersonDetail personId={selectedPersonId} updatePerson={this.updatePersonHandler} />
                     }
                 </div>
             </div>

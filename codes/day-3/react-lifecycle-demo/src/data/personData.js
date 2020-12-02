@@ -28,5 +28,7 @@ export const getPersonById = (id) => {
 }
 
 export const updatePeople = (newPersonArray) => {
+    console.log(personData)
     personData = newPersonArray;
+    console.log(personData)
 }
