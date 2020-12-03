@@ -37,3 +37,5 @@ state hook:
 3. setXState does not merge, BUT REPLACES the old state by the new state
 4. setXState has only two versions: setXState(newState) or setXState((ps)=>{return newState});
 
+Effect Hook:
+
