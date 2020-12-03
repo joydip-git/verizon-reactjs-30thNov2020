@@ -31,3 +31,9 @@ RP: Render Prop
 
 16.8 version: APIs --> Hooks
 
+state hook:
+1. you can have as many states as you want
+2. state could be of any type: primite or reference (string, an array, a JS object)
+3. setXState does not merge, BUT REPLACES the old state by the new state
+4. setXState has only two versions: setXState(newState) or setXState((ps)=>{return newState});
+
