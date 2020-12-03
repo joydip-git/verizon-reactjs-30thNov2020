@@ -10,7 +10,8 @@ const AnotherChild = forwardRef(
         const call = () => console.log('hi')
         refObj.current = {
             invokeTest: test,
-            invokeCall: call
+            invokeCall: call,
+            someRef: justRef
         }
         return (
             <div>
