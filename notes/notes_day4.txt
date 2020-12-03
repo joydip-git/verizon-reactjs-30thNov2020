@@ -39,3 +39,13 @@ state hook:
 
 Effect Hook:
 
+routing: (react-router-dom)--> useHistory, useLocation, useParams
+redux: (react-redux)--> useSelector, useDispatch
+useState, useEffect, useRef, useMemo, useReducer etc....
+
+ref, createRef(), callback ref, forwardRef()
+
+
+
+
+
