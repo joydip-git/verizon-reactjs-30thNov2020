@@ -1,0 +1,21 @@
+
+toogle button
+
+jkjhjlkjlkjlklj 
+
+__proto__: some.prototype
+
+var utility={
+
+   getData:()=>{},
+   addData:()=>{}
+
+}
+
+class Comp extends Component{}
+
+Object.assign(Comp.prototype,utility)
+
+Lifting the state up
+
+HOC: Higher Order Component
