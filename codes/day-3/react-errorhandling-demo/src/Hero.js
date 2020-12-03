@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import withError from './withError';
 
 /*
 const Hero = ({ heroName }) => {
@@ -37,4 +38,5 @@ Hero.propTypes = {
     heroName: PropTypes.string.isRequired
 }
 
-export default Hero
+export default withError(Hero, (errorData) => console.log(errorData));
+//export default Hero;

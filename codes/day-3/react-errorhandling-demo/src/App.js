@@ -1,18 +1,18 @@
 import './App.css';
-import ErrorBoundary from './ErrorBoundary';
+//import ErrorBoundary from './ErrorBoundary';
 import Hero from './Hero';
 
 function App() {
-  const errorLogger = (errorInfo) => {
-    console.log(errorInfo)
-  }
+  // const errorLogger = (errorInfo) => {
+  //   console.log(errorInfo)
+  // }
   return (
+    // <ErrorBoundary logger={errorLogger}>
     <div className="App">
-      <ErrorBoundary logger={errorLogger}>
-        <Hero heroName='Batman' />
-        <Hero heroName='Joker' />
-      </ErrorBoundary>
+      <Hero heroName='Batman' />
+      <Hero heroName='Joker' />
     </div>
+    // </ErrorBoundary >
   );
 }
 
