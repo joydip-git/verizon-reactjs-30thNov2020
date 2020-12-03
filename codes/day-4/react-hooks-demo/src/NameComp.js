@@ -1,4 +1,4 @@
-import { Component, useEffect } from "react";
+import { useEffect } from "react";
 
 const NameComp = ({ name, changeName }) => {
     //const [xState,setXState]=useState({});
@@ -51,6 +51,7 @@ const NameComp = ({ name, changeName }) => {
 }
 export default NameComp;
 
+/*
 class A extends Component {
     shouldComponentUpdate() {
 
@@ -67,3 +68,4 @@ class A extends Component {
 
     }
 }
+*/

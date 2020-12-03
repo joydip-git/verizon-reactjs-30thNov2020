@@ -38,12 +38,31 @@ state hook:
 4. setXState has only two versions: setXState(newState) or setXState((ps)=>{return newState});
 
 Effect Hook:
+effect hook codes get executed after rendering the react element of the component
+useEffect(callback-func-to-cause-effect, dependency list)
+useEffect(
+   ()=>{
+       //function code to cause effect
+       return ()=>{
+             //function code to clean up (in the next cycle) 
+       }
+   },
+   [prop-names(s)]
+)
 
 routing: (react-router-dom)--> useHistory, useLocation, useParams
 redux: (react-redux)--> useSelector, useDispatch
 useState, useEffect, useRef, useMemo, useReducer etc....
 
 ref, createRef(), callback ref, forwardRef()
+
+scenarios:
+1. focus or validate an input element
+2. parent component wants to access child component members  a. class  b. function (forwardRef) 
+3. you want to get reference of a component from a third party library package
+
+parent data --> via props --> child
+parent functions (callbacks) --> via props --> child --> child calls back that function-->passes arguments
 
 
 
