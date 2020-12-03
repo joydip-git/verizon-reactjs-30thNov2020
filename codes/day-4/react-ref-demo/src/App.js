@@ -32,7 +32,9 @@ function App() {
     console.log(childRef)
     console.log(anotherChildRef)
     //childRef.current.focusChildInput()
-    anotherChildRef.current.focus()
+    //anotherChildRef.current()
+    anotherChildRef.current.invokeTest()
+    anotherChildRef.current.invokeCall();
   })
   return (
     <div className="App">

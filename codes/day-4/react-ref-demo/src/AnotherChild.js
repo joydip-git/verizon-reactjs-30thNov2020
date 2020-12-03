@@ -1,12 +1,24 @@
-import React, { forwardRef } from 'react'
+import React, { createRef, forwardRef } from 'react'
 
-const AnotherChild = forwardRef((props, childRef) => {
-    return (
-        <div>
-            Another Child&nbsp;<input type='text' ref={childRef} />
-        </div>
-    )
-});
+const AnotherChild = forwardRef(
+    (props, childRef) => {
+        const refObj = childRef;
+        const justRef = createRef();
+        const test = () => {
+            justRef.current.focus()
+        }
+        const call = () => console.log('hi')
+        refObj.current = {
+            invokeTest: test,
+            invokeCall: call
+        }
+        return (
+            <div>
+                Another Child&nbsp;<input type='text' ref={justRef} />
+            </div>
+        )
+    }
+);
 export default AnotherChild;
 /*
 const AnotherChild = (props, childRef) => {
