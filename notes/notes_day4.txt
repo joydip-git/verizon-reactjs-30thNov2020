@@ -22,3 +22,12 @@ Resuability:
 Mixin:
 HOC: Higher Order Component
 RP: Render Prop
+
+
+1. class component
+2. state
+3. lifecycle events
+4. reusability (Mixin, RP, HOC)
+
+16.8 version: APIs --> Hooks
+
