@@ -18,4 +18,7 @@ Object.assign(Comp.prototype,utility)
 
 Lifting the state up
 
+Resuability:
+Mixin:
 HOC: Higher Order Component
+RP: Render Prop

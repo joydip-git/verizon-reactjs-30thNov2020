@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import PropTypes from 'prop-types'
 import withError from './withError';
 
@@ -38,5 +38,5 @@ Hero.propTypes = {
     heroName: PropTypes.string.isRequired
 }
 
-export default withError(Hero, (errorData) => console.log(errorData));
+export default withError(memo(Hero), (errorData) => console.log(errorData));
 //export default Hero;
