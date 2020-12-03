@@ -1,6 +1,10 @@
 const CountComp = ({ value }) => {
+    console.log('[CountComp] rendered')
     return (
-        <div>Count:&{value}</div>
+        <div>
+            Count:&nbsp;
+            {value}
+        </div>
     )
 }
 export default CountComp;
