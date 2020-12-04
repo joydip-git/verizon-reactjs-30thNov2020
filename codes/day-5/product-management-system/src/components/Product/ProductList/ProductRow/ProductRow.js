@@ -1,36 +1,51 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
-const ProductRow = (props) => {
+const ProductRow = ({ productRecord }) => {
+    const imgStyle = {
+        margin: '2px',
+        width: '50px'
+    }
     return (
         <tr>
             <td>
-                <div className="img-responsive">
-                    <img
-                        src='' alt="NA"
-                        style={{
-                            margin: '2px',
-                            width: '50px'
-                        }}
-                        title=""
-                    />
-                </div>
+                <Link to={`/products/${productRecord.productId}`}>
+                    <div className="img-responsive">
+                        <img
+                            src={productRecord.imageUrl}
+                            alt="NA"
+                            style={imgStyle}
+                            title={productRecord.productName}
+                        />
+                    </div>
+                </Link>
             </td>
             <td>
-                product name
+                <Link to={`/product/update/${productRecord.productId}`}>
+                    {productRecord.productName}
+                </Link>
             </td>
             <td>
-                product code here
+                {productRecord.productCode}
             </td>
-            <td>price here</td>
-            <td>rating</td>
             <td>
-                <button className='btn btn-danger'>Delete</button>
+                {productRecord.price}
+            </td>
+            <td>
+                {productRecord.starRating}
+            </td>
+            <td>
+                <button className='btn btn-danger'>
+                    Delete
+                </button>
             </td>
         </tr>
     )
 }
 
 ProductRow.propTypes = {
+    productRecord: PropTypes.object.isRequired
 }
 
 export default ProductRow

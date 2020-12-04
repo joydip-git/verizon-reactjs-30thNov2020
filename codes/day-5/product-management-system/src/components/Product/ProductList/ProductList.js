@@ -1,10 +1,12 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import ProductRow from './ProductRow/ProductRow'
 
-const ProductList = (props) => {
+const ProductList = ({ productRecords }) => {
     return (
         <div>
             <div className="panel panel-heading">
-                <h4> Record(s) found...</h4>
+                <h4> {productRecords.length} Record(s) found...</h4>
             </div>
             <div className="table-responsive">
                 <table className="table">
@@ -19,11 +21,18 @@ const ProductList = (props) => {
                         </tr>
                     </thead>
                     <tbody>
-                        
+                        {
+                            productRecords.map(p => {
+                                return <ProductRow key={p.id} productRecord={p} />
+                            })
+                        }
                     </tbody>
                 </table>
             </div>
         </div>
     )
+}
+ProductList.propTypes = {
+    productRecords: PropTypes.array.isRequired
 }
 export default ProductList

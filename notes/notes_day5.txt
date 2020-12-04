@@ -43,10 +43,39 @@ Route, Switch, Link, NavLink, Redirect etc.
    b. create a component which reads from the file and generate routes (using map and Route component)
    c. use that component in your application
 
-<Route path='/home' component={Home} />
-<Route path='/home' component={Home} />
-<Route path='/home' component={Home} />
-<Route path='/home' component={Home} />
+
+http://127.0.0.1:8081/productservice
+
+HTTP Requests:
+Client API:
+fetch or Axios
+
+fetch().then(resp=>resp.json(), (reason)=>clgreason)).catch(e=>)
+
+axios: npm i axios --save
+1. Promise based get, post, put, delete, etc....
+
+Axios.create({
+	baseUrl:'',
+        timeout:5000
+})
+
+Promise<AxiosResponse<any>>
+axios.get()
+promiseObject
+  .then(
+   	(resp)=>resp.data,
+   	(resaon)=> clg(reason)
+   )
+  .catch(
+        (e)=>clg(e)
+   )
+
+
+flow
+
+
+
 
 
 

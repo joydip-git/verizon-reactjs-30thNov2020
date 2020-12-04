@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { forwardRef, Fragment } from 'react'
 
-const FilterProduct = props => {
+const FilterProduct = forwardRef((props, ref) => {
     return (
-        <div>
+        <Fragment>
             <div className="col-md-2">
                 Filter By:
             </div>
@@ -10,10 +10,20 @@ const FilterProduct = props => {
                 <input
                     type="text"
                     value=''
+                    ref={ref}
                 />
             </div>
-        </div>
+        </Fragment>
     )
 }
+)
 
 export default FilterProduct
+
+/*
+class Frag extends Component{
+    render(){
+        return this.props.children;
+    }
+}
+*/
