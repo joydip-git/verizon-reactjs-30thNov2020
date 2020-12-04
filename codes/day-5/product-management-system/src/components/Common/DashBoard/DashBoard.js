@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 function DashBoard() {
     return (
@@ -10,22 +9,22 @@ function DashBoard() {
             <nav className="navbar navbar-default">
                 <div className="container-fluid">
 
-                    <Link to='/home'>
+                    <a href="#">
                         <button className='btn btn-primary'>
                             Home
                         </button>
-                    </Link>
+                    </a>
 
-                    <Link to='/products'>
+                    <a href='#'>
                         <button className="btn btn-primary">
                             Products
                         </button>
-                    </Link>
-                    <Link to="/product/add">
+                    </a>
+                    <a href="">
                         <button className="btn btn-primary">
                             Add Product
                         </button>
-                    </Link>
+                    </a>
                 </div>
             </nav>
         </>
@@ -33,10 +32,3 @@ function DashBoard() {
 }
 
 export default DashBoard
-/*
-class Frag extends Component {
-    render() {
-        return this.props.children;
-    }
-}
-*/

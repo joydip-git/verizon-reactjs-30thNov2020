@@ -1,0 +1,4 @@
+1. Routing
+2. HTTP request
+3. Redux
+4. fragment
