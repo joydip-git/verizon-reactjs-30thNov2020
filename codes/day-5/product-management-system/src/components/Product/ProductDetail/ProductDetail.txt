@@ -1,25 +1,43 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useHistory, useParams } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux'
-import { fetchProductByIdAsyncCallbackCreator } from '../../../redux/asynccallbacks/productAsyncCallbacks'
+import { getProductRecordById } from '../../../services/productService'
+//import { useLocation,useHistory } from 'react-router-dom'
+
+//function ProductDetail({hitsory, location, match}) {
+//console.log(match.params.id)
 
 function ProductDetail() {
-
     const histroy = useHistory()
+    //const location = useLocation();
     const params = useParams();
     const productId = params.id;
 
-    const product = useSelector((stateMap) => stateMap.singleProduct.product)
-    const error = useSelector((stateMap) => stateMap.singleProduct.error)
-    const loading = useSelector((stateMap) => stateMap.singleProduct.loading)
+    const [{ product, loading, error }, setProductState] = useState({ product: null, error: null, loading: true })
 
-    const dispatch = useDispatch()
+    const setStateProperties = (data, errorMessage, status) => {
+        setProductState({
+            product: data,
+            error: errorMessage,
+            loading: status
+        })
+    }
 
     useEffect(
         () => {
-            const fetchProductByIdAsyncCallback = fetchProductByIdAsyncCallbackCreator(productId)
-            dispatch(fetchProductByIdAsyncCallback)
-        }, [])
+            getProductRecordById(productId)
+                .then(
+                    (response) => {
+                        setStateProperties(response.data, null, false)
+                    },
+                    (rejectResaon) => {
+                        setStateProperties(null, rejectResaon, false)
+                    }
+                )
+                .catch(e => {
+                    setStateProperties(null, e.message, false)
+                })
+        }
+        , [])
 
     let design = null;
     if (loading) {

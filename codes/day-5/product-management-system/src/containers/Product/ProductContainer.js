@@ -12,7 +12,7 @@ class ProductContainer extends Component {
 
 
     componentDidUpdate() {
-        if (this.state.products.length > 0)
+        if (this.props.products.length > 0)
             this.filterProductRef.current.focus()
     }
     componentDidMount() {
