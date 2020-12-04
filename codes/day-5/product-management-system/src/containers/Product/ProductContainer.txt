@@ -1,27 +1,54 @@
 import React, { Component, createRef } from 'react'
 import FilterProduct from '../../components/Product/FilterProduct/FilterProduct'
 import SortProduct from '../../components/Product/SortProduct/SortProduct'
+import { getProductRecords } from '../../services/productService'
 import ProductList from '../../components/Product/ProductList/ProductList'
-import { fetchProductsAsyncCallbackCreator } from '../../redux/asynccallbacks/productAsyncCallbacks'
-import { connect } from 'react-redux'
-
 
 class ProductContainer extends Component {
 
     filterProductRef = createRef()
 
+    state = {
+        products: [],
+        error: null,
+        loading: true
+    }
 
+    setStateProperties = (data, errorMessage, status) => {
+        // this.setState({
+        //     products: data,
+        //     error: errorMessage,
+        //     loading: status
+        // }, () => {
+        //     if (this.state.products.length > 0)
+        //         this.filterProductRef.current.focus()
+        // })
+        this.setState({
+            products: data,
+            error: errorMessage,
+            loading: status
+        })
+    }
     componentDidUpdate() {
         if (this.state.products.length > 0)
             this.filterProductRef.current.focus()
     }
     componentDidMount() {
-        this.props.getProducts()
+        
+        getProductRecords()
+            .then(
+                (response) => {
+                    this.setStateProperties(response.data, null, false)
+                }
+            )
+            .catch(e => {
+                this.setStateProperties([], e.message, false)
+            })
     }
 
     render() {
         let design = null;
-        const { loading, error, products } = this.props;
+        const { loading, error, products } = this.state;
 
         if (loading) {
             design = <span>Loading....</span>
@@ -46,21 +73,4 @@ class ProductContainer extends Component {
         return design;
     }
 }
-
-const mapStateToProps = (stateMap) => {
-    return {
-        products: stateMap.allProducts.products,
-        error: stateMap.allProducts.error,
-        loading: stateMap.allProducts.loading
-    }
-};
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        getProducts: () => dispatch(fetchProductsAsyncCallbackCreator())
-    }
-}
-// const connector = connect(mapStateToProps, mapDispatchToProps);
-// connector(ProductContainer)
-
-export default connect(mapStateToProps, mapDispatchToProps)(ProductContainer);
+export default ProductContainer;
