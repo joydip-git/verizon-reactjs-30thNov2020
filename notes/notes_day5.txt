@@ -2,3 +2,55 @@
 2. HTTP request
 3. Redux
 4. fragment
+
+download
+open in VS code
+npm i
+npm i bootstrap prop-types --save
+
+Root Component: App
+Fixed Nested Component: DashBoard
+
+application routes:
+1. /			Home
+2. /home		Home
+3. /products		ProductContainer --> [ProductList (ProductRow) + FilterProduct + SortProduct]
+4. /products/{id}	ProductDetail
+5. /product/update/{id}	UpdateProduct
+6. /product/add		AddProduct
+7. *			PageNotFound
+
+Routing:
+package: react-router-dom (react-router)
+npm i react-router-dom --save
+
+Types of Router Engine:
+a. BrowserRouter: HTML5 API: history API --> pushState API, go, goback, gofoward...
+   read from /write into browser
+
+   forceRefresh API
+
+b. HashRouter: /#/
+
+c. MemoryRouter: DOES not read from/write into browser address bar
+   React Native application
+
+Route, Switch, Link, NavLink, Redirect etc.
+
+1. static routing <Route path='/home' component={Home} />
+2. dynamic routing
+   a. file with [array of route objects]
+   b. create a component which reads from the file and generate routes (using map and Route component)
+   c. use that component in your application
+
+<Route path='/home' component={Home} />
+<Route path='/home' component={Home} />
+<Route path='/home' component={Home} />
+<Route path='/home' component={Home} />
+
+
+
+
+
+
+

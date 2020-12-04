@@ -16,7 +16,7 @@ const ProductRow = (props) => {
                 </div>
             </td>
             <td>
-                prodict name
+                product name
             </td>
             <td>
                 product code here

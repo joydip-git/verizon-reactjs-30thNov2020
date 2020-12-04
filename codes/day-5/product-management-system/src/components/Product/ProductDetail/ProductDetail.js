@@ -1,21 +1,26 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { useHistory, useLocation, useParams } from 'react-router-dom';
 
-class ProductDetail extends Component {
+//function ProductDetail({hitsory, location, match}) {
+//console.log(match.params.id)
 
-    render() {
+function ProductDetail() {
+    const histroy = useHistory()
+    const location = useLocation();
+    const params = useParams();
+    console.log(params.id)
 
-        let design = null;
-        design = (
-            <div>
-                Detail of:&nbsp;
-                <br />
-                <br />
-                <button className='btn btn-primary'>
-                    Back
+    let design = null;
+    design = (
+        <div>
+            Detail of:&nbsp;
+            <br />
+            <br />
+            <button className='btn btn-primary'>
+                Back
                 </button>
-            </div>
-        )
-        return design;
-    }
+        </div>
+    )
+    return design;
 }
 export default ProductDetail
