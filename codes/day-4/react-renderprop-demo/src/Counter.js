@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 export default class Counter extends Component {
+    // constructor(){
+    //     super()
+    //     //this.logError = this.logError.bind(this);
+    // }
     state = {
         counter: 0
     }
@@ -31,6 +35,7 @@ export default class Counter extends Component {
     render() {
         return (
             <div>
+                {/* <A handler={this.injectService.bind(this)} /> */}
                 { this.props.render(this.state.counter, this.increaseCounterHandler)}
             </div>
         )

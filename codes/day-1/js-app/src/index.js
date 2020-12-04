@@ -38,9 +38,12 @@ const joydipObj = new developer('joy', 2, 1200, 2200, 3200, 4200);
 //anilObj.show();
 
 function printSalary(salaryFnRef) {
-    console.log(this)
+    console.log(this) //window(browser)/global (Node)
     console.log(salaryFnRef())
 }
+
+// anilObj.calculateSalary = anilObj.calculateSalary.bind(anilObj);
+// joydipObj.calculateSalary = joydipObj.calculateSalary.bind(joydipObj);
 
 printSalary(anilObj.calculateSalary)
 printSalary(joydipObj.calculateSalary)
