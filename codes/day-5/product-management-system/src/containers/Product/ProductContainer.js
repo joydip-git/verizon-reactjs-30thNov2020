@@ -34,18 +34,8 @@ class ProductContainer extends Component {
             this.filterProductRef.current.focus()
     }
     componentDidMount() {
-        getProductRecords()
-            .then(
-                (response) => {
-                    this.setStateProperties(response.data, null, false)
-                },
-                (rejectResaon) => {
-                    this.setStateProperties([], rejectResaon, false)
-                }
-            )
-            .catch(e => {
-                this.setStateProperties([], e.message, false)
-            })
+        //dispatch callback against store, rather than fetch data and dipatch actions
+        //dispatch(fetchProductsAsync)
     }
 
     render() {
