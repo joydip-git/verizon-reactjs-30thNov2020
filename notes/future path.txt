@@ -1,0 +1,12 @@
+design: material-ui
+redux middleware: saga (ES6 generator function)
+server side rendering: Next.js
+auth: JWT (Node.js)
+architecture: react fiber
+mobile: React Native, android react app
+
+Portals
+Profiles
+
+flow - static type checking
+typescript 
