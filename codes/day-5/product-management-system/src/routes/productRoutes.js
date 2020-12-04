@@ -1,10 +1,19 @@
-import Home from '../components/Common/Home/Home'
-import PageNotFound from '../components/Common/PageNotFound/PageNotFound'
+// import Home from '../components/Common/Home/Home'
+// import PageNotFound from '../components/Common/PageNotFound/PageNotFound'
 
-import ProductContainer from '../containers/Product/ProductContainer'
-import AddProduct from '../components/Product/AddProduct/AddProduct'
-import ProductDetail from '../components/Product/ProductDetail/ProductDetail'
-import UpdateProduct from '../components/Product/UpdateProduct/UpdateProduct'
+// import ProductContainer from '../containers/Product/ProductContainer'
+// import AddProduct from '../components/Product/AddProduct/AddProduct'
+// import ProductDetail from '../components/Product/ProductDetail/ProductDetail'
+// import UpdateProduct from '../components/Product/UpdateProduct/UpdateProduct'
+
+import { lazy } from 'react'
+
+const Home = lazy(() => import('../components/Common/Home/Home'))
+const PageNotFound = lazy(() => import('../components/Common/PageNotFound/PageNotFound'))
+const ProductContainer = lazy(() => import('../containers/Product/ProductContainer'));
+const AddProduct = lazy(() => import('../components/Product/AddProduct/AddProduct'));
+const ProductDetail = lazy(() => import('../components/Product/ProductDetail/ProductDetail'));
+const UpdateProduct = lazy(() => import('../components/Product/UpdateProduct/UpdateProduct'));
 
 export const productRoutes = [
     {

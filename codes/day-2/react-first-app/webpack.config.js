@@ -3,9 +3,14 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const webpackConfigObj = {
-    entry: path.resolve(__dirname, 'src', 'index.js'),
+    entry: {
+        main: path.resolve(__dirname, 'src', 'index.js'),
+        app: path.resolve(__dirname, 'src', 'App.js'),
+        description: path.resolve(__dirname, 'src', 'DescriptionComp.js'),
+        header: path.resolve(__dirname, 'src', 'HeaderComp.js')
+    },
     output: {
-        filename: 'bundle.js',
+        filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'build')
     },
     module: {

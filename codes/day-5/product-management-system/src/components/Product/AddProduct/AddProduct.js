@@ -57,6 +57,7 @@ export default class AddProduct extends Component {
                                 className="form-control"
                                 value=''
                                 name='productId'
+                                id='productId'
                                 onChange={(e) => { }}
                                 placeholder="product id" />
                         </div>

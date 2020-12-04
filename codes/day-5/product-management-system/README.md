@@ -68,3 +68,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+### docker build -t -f Dockerfile.dev joydipdocker/pmsapp:dev . 
+### docker run -it -d --rm -v /app/node_modules -p 3001:3000 -e CHOKIDAR-USEPOLLING=true --name pmsapp joydipdocker/pmsapp:dev
+
+### docker build -f Dockerfile.prod -t joydipdocker/pmsapp:prod .
+### docker run -it --rm -p 1337:80 --name pmsapp joydipdocker/pmsapp:prod
